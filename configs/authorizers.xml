@@ -50,7 +50,7 @@
 {{- range $i := until $replicas }}
         <property name="Initial User Identity {{ $i }}">CN={{ $fullname }}-{{ $i }}.{{ $fullname }}-headless.{{ $namespace }}.svc.cluster.local, OU=NIFI</property>
 {{- end }}
-        <property name="Initial User Identity ca admin">CN={{ .Values.ca.admin.cn }}, OU=NIFI</property>
+        <property name="Initial User Identity ca admin">{{ .Values.ca.admin.cn }}</property>
         <property name="Initial User Identity admin">{{ .Values.auth.admin }}</property>
     </userGroupProvider>
     <!--

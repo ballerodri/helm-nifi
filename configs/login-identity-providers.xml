@@ -66,9 +66,9 @@
     <provider>
         <identifier>ldap-provider</identifier>
         <class>org.apache.nifi.ldap.LdapProvider</class>
-        <property name="Authentication Strategy">START_TLS</property>
-        <property name="Manager DN"></property>
-        <property name="Manager Password"></property>
+        <property name="Authentication Strategy">SIMPLE</property>
+        <property name="Manager DN">{{.Values.auth.ldap.admin}}</property>
+        <property name="Manager Password">{{.Values.auth.ldap.pass}}</property>
         <property name="TLS - Keystore"></property>
         <property name="TLS - Keystore Password"></property>
         <property name="TLS - Keystore Type"></property>
@@ -85,7 +85,7 @@
         <property name="Url">{{.Values.auth.ldap.host}}</property>
         <property name="User Search Base">{{.Values.auth.ldap.searchBase}}</property>
         <property name="User Search Filter">{{.Values.auth.ldap.searchFilter}}</property>
-        <property name="Identity Strategy">USE_DN</property>
+        <property name="Identity Strategy">{{.Values.auth.ldap.identityStrategy}}</property>
         <property name="Authentication Expiration">12 hours</property>
     </provider>
     {{end}}
